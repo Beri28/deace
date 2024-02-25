@@ -1,0 +1,31 @@
+:root{
+    --first-color:#f7f3f5;
+    --second-color:#e2c2b3;
+    --third-color:#687477;
+    --fourth-color:#403234;
+    --white:white;
+}
+.footer-bg{
+    background-color: var(--third-color);
+    color: var(--first-color);
+}
+.footer-links{
+    width: 50%;
+}
+.footer-links li{
+    list-style: none;
+    line-height: 2em;
+}
+.footer-links li:hover{
+    cursor: pointer;
+    color: var(--second-color);
+    transform: scale(1.07);
+    transition: 900ms;
+}
+.a-link:hover{
+    color: var(--second-color);
+}
+.a-link{
+    text-decoration: none;
+    color: inherit;
+}

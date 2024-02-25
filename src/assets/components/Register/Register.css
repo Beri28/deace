@@ -1,0 +1,25 @@
+:root{
+    --first-color:#f7f3f5;
+    --second-color:#e2c2b3;
+    --third-color:#687477;
+    --fourth-color:#403234;
+    --white:white;
+  }
+.form-bg{
+    background: linear-gradient(152deg,white 50%,#687477 0);
+}
+form{
+    background: linear-gradient(152deg,#687477 50%,white 0);
+    border-radius: 8px;
+}
+label{
+    color: var(--white);
+}
+.form-text{
+    color: var(--second-color);
+}
+.btn-c{
+    /* background-color: var(--second-color); */
+    color: var(--second-color);
+    border-color: var(--second-color);
+}
