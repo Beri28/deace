@@ -6,7 +6,7 @@ const Card = ({imageUrl}) => {
     const [likes,setLikes]=useState(0)
     return ( 
         <div>
-            <div className="card card-cover overflow-hidden text-white rounded-5 shadow-lg w-100" style={{backgroundImage: imageUrl,backgroundRepeat:"round"}}>
+            <div className="card card-cover overflow-hidden text-white rounded-5 shadow-lg w-100" style={{backgroundImage: imageUrl,backgroundSize:"cover"}}>
                 <div className="img w-100 h-100">
                     {/*Trial blog starts here  */}
                     <Link to='/details'>
