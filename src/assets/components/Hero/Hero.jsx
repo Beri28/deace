@@ -20,7 +20,7 @@ const Hero = () => {
             <div className="hero-mobile d-md-none shadow border rounded-3">
                     <div className="hero-overlay d-flex align-items-center position-relative">
                         <img src="/assets/img/img-12.png" className='position-absolute img-fluid custom-sticker shadow rounded-3' style={{top:"-4em",left:"8em",transform:"rotate(20deg)"}} alt="deco-1" />
-                        <img src="/assets/img/img-10.png" className='position-absolute img-fluid custom-sticker ct-3 shadow rounded-3' style={{top:"36em",left:"12em",transform:"rotate(320deg)"}} alt="deco-1" />
+                        <img src="/assets/img/img-10.png" className='position-absolute img-fluid custom-sticker ct-3 shadow rounded-3' style={{top:"36em",left:"9em",transform:"rotate(320deg)"}} alt="deco-1" />
                         <div className="col p-3 hero-mobile-content">
                             <h1 className="display-4 fw-bold lh-1 hhm">Bringing to life unique elegant designs</h1>
                             <p className="lead text-light">
