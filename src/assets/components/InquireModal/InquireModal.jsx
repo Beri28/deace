@@ -8,7 +8,7 @@ const InquireModal = ({modalHeading,size}) => {
 
 
             <div className="modal " id="myModal">
-            <div className="modal-dialog w-100" style={{top:"22%"}}>
+            <div className="modal-dialog w-100 m-md-2 m-0" style={{top:"22%"}}>
                 <div className="modal-content">
 
 
