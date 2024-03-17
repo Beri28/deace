@@ -1,0 +1,34 @@
+:root{
+    --first-color:#f7f3f5;
+    --second-color:#e2c2b3;
+    --third-color:#687477;
+    --fourth-color:#403234;
+    --white:white;
+  }
+.white-bg{
+    background-color: var(--white);
+}
+.color-bg{
+    background-color: var(--third-color);
+}
+.color-bg p{
+    padding: .5em;
+    border-radius: 8px;
+    background-color: var(--white);
+}
+form{
+    background: unset;
+}
+label{
+    color: inherit;
+}
+.form-text{
+    color: var(--third-color);
+}
+form div input,form div textarea{
+    background-color: var(--third-color)!important;
+    color: var(--first-color)!important;
+}
+form div input::placeholder,form div textarea::placeholder{
+    color: var(--first-color)!important;
+}

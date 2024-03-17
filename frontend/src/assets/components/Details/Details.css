@@ -1,0 +1,19 @@
+:root{
+    --first-color:#f7f3f5;
+    --second-color:#e2c2b3;
+    --third-color:#687477;
+    --fourth-color:#403234;
+    --white:white;
+  }
+.indicator{
+    position: absolute;
+    background-color: var(--third-color);
+    color: white;
+    padding: .5em;
+    border-radius: 25px;
+    left: 2em;
+    top: 1em;
+}
+.like:hover{
+  cursor: pointer;
+}

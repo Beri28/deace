@@ -1,0 +1,24 @@
+.greetings{
+    font-family: cursive;
+}
+.add,.delete,.edit{
+    background-image: url('../../../../public/assets/img/img-12.png');
+    background-repeat: round;
+    height: 25vh;
+    border-radius: 5px;
+}
+
+.add-bg,.edit-bg,.delete-bg{
+    background-color: rgba(0, 0, 0,.5);
+    border-radius: 5px;
+}
+.add-bg i,.edit-bg i,.delete-bg i{
+    top: 40%;
+    font-size: xx-large;
+}
+.user-icon{
+    background-color: white;
+    padding: .5em;
+    border-radius: 25px;
+    margin-right: .4em;
+}

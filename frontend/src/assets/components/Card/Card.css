@@ -1,0 +1,20 @@
+:root{
+    --first-color:#f7f3f5;
+    --second-color:#e2c2b3;
+    --third-color:#687477;
+    --fourth-color:#403234;
+    --white:white;
+  }
+.img{
+    background-color: rgba(0, 0, 0,.35);
+}
+.card{
+    height: 35vh;
+}
+.info{
+    /* color: var(--first-color); */
+    color: var(--first-color);
+}
+.h-55{
+    height: 54%!important;;
+}

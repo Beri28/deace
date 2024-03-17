@@ -1,0 +1,18 @@
+:root{
+    --first-color:#f7f3f5;
+    --second-color:#e2c2b3;
+    --third-color:#687477;
+    --fourth-color:#403234;
+    --white:white;
+}
+.menu-bg{
+    z-index: 999;
+    position: absolute;
+    /* background-color: rgba(226, 194, 179,0.7); */
+    background-color: rgba(104, 116, 119,.8);
+    /* top: 2.8em; */
+}
+.menu-content{
+    background-color: var(--white);
+    color: var(--third-color);
+}
