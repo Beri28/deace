@@ -7,7 +7,7 @@ const cors=require('cors')
 const bodyParser=require('body-parser')
 const cookieParser=require('cookie-parser')
 
-mongoose.connect(process.env.mongoURI).then(()=>{
+mongoose.connect(process.env.mongoURI_online).then(()=>{
     console.log("Db connected!!")
 }).catch(()=>{
     console.log("Couldn't connect to db!")
