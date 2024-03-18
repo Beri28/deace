@@ -38,7 +38,7 @@ const EditModal = ({modalHeading,designId,designName}) => {
         if(user && user.admin){ 
             if(user.expiresIn>d){
                 formData.append('admin',user.admin)
-                fetch('http://localhost:5000/api/edit/'+user.token,{
+                fetch('https://deace.co/api/edit/'+user.token,{
                 method:'POST',
                 credentials:'include',
                 body:formData

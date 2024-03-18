@@ -28,7 +28,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link to='/credits' >
-                                <span>Credits</span> 
+                                <span>Image Credits</span> 
                             </Link>
                         </li>
                         <li>

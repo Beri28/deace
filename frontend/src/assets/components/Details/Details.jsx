@@ -11,7 +11,7 @@ const Details = ({designs}) => {
     const handleLikes=()=>{
         setLikes(likes+1)
         let name=focusArray[0].name
-        fetch(`http://localhost:5000/api/designs/${name}`,{
+        fetch(`https://deace.co/api/designs/${name}`,{
             method:'PATCH'
         }).then(res=>res.json())
         .then((data=>{

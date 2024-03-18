@@ -12,7 +12,7 @@ const Register = () => {
         e.preventDefault()
         setEError('')
         setPError('')
-        fetch("http://localhost:5000/api/register",{
+        fetch("https://deace.co/api/register",{
             method:'POST',
             credentials:'include',
             headers:{

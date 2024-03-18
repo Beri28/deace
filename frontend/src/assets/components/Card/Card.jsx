@@ -6,7 +6,7 @@ const Card = ({imageUrl,design}) => {
     const [likes,setLikes]=useState(0)
     const handleLikes=()=>{
         setLikes(likes+1)
-        fetch(`http://localhost:5000/api/designs/${design.name}`,{
+        fetch(`https://deace.co/api/designs/${design.name}`,{
             method:'PATCH'
         }).then(res=>res.json())
         .then((data=>{

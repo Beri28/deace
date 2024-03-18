@@ -11,7 +11,7 @@ const Login = () => {
         e.preventDefault()
         setEError('')
         setPError('')
-        fetch("http://localhost:5000/api/login",{
+        fetch("https://deace.co/api/login",{
             method:'POST',
             credentials:'include',
             headers:{

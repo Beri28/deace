@@ -21,6 +21,8 @@ const Menu = ({setShowMenu}) => {
                 </div>
                 <p className='border-bottom'><Link to='/about'>About Us</Link></p>
                 <p className='border-bottom'><Link to='/contact'>Contact Us</Link></p>
+                <p className='border-bottom'><Link to='/credits'>Image Credits</Link></p>
+                <p className='border-bottom'><Link to='/login'>Login</Link></p>
             </div>
         </div>
      );

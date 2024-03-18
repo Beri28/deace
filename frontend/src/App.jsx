@@ -15,6 +15,7 @@ import Register from './assets/components/Register/Register'
 import Login from './assets/components/Register/Login'
 import Credits from './assets/components/Credits/Credits'
 import ContactUs from './assets/components/ContactUs/ContactUs'
+import NotFound from './assets/components/NotFound/NotFound'
 
 
 
@@ -28,7 +29,7 @@ function App() {
   // const [designs,setDesigns]=useState(JSON.parse(localStorage.getItem('deaceDesigns')))
   let user
   useEffect(()=>{
-        fetch('http://localhost:5000/api/designs',{
+        fetch('https://deace.co/api/designs',{
           method:"GET"
         }).then(res=>{
           if(res.ok){
@@ -86,6 +87,7 @@ function App() {
             <Route path='/contact' element={<ContactUs />} />
             <Route path='/credits' element={<Credits />} />
             <Route path='/collections' element={<Section2 title="Collections" id="collections" top="37%"/>} />
+            <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
     </Router>
