@@ -14,8 +14,7 @@ mongoose.connect(process.env.mongoURI_online).then(()=>{
 })
 
 app.use(cors({
-    //origin:['http://127.0.0.1:5173','https://www.deace.co/','http://localhost:5173'],
-    origin:true,
+    origin:['http://127.0.0.1:5173','https://www.deace.co/','http://localhost:5173'],
     credentials:true,
 }))
 app.use((req, res, next) => {
