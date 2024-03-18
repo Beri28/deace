@@ -17,6 +17,7 @@ app.use(cors({
     origin:['http://127.0.0.1:5173','https://www.deace.co/','http://localhost:5173'],
     credentials:true,
 }))
+console.log("Checking")
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "https://www.deace.co/");
     res.setHeader(
