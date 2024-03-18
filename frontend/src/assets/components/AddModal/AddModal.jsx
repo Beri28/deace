@@ -30,7 +30,7 @@ const AddModal = ({modalHeading}) => {
         user=await JSON.parse(localStorage.getItem('deace'))
         if(user && user.admin){ 
             formData.append('admin',user.admin)
-            fetch('https://deace.co/api/save/'+user.token,{
+            fetch('/api/save/'+user.token,{
             method:'POST',
             credentials:'include',
             body:formData

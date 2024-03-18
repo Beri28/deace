@@ -8,7 +8,7 @@ const DEleteCard = ({design}) => {
         e.preventDefault()
         let id=e.target.id
         user=JSON.parse(localStorage.getItem('deace'))
-        fetch('https://deace.co/api/delete/'+user.token+'/'+id,{
+        fetch('/api/delete/'+user.token+'/'+id,{
             method:"DELETE"
         }).then(res=>res.json())
         .then((data)=>{

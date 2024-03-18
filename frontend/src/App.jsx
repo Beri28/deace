@@ -2,7 +2,8 @@ import { useEffect, useState,lazy } from 'react'
 import { BrowserRouter as Router,Routes,Route, Link, useNavigate } from 'react-router-dom'
 import './App.css'
 import Navbar from './assets/components/Navbar/Navbar'
-const Menu=lazy(()=>import('./assets/components/Menu/Menu'))
+import Menu from './assets/components/Menu/Menu'
+// const Menu=lazy(()=>import('./assets/components/Menu/Menu'))
 const Hero=lazy(()=>import('./assets/components/Hero/Hero'))
 const Section=lazy(()=>import('./assets/components/Section/Section'))
 const Section2=lazy(()=>import('./assets/components/Section/Section2'))
@@ -17,7 +18,6 @@ const Credits=lazy(()=>import('./assets/components/Credits/Credits'))
 const ContactUs=lazy(()=>import('./assets/components/ContactUs/ContactUs'))
 const NotFound=lazy(()=>import('./assets/components/NotFound/NotFound'))
 
-// import Menu from './assets/components/Menu/Menu'
 // import Navbar from './assets/components/Navbar/Navbar'
 // import Hero from './assets/components/Hero/Hero'
 // import Section from './assets/components/Section/Section'
@@ -45,7 +45,7 @@ function App() {
   // const [designs,setDesigns]=useState(JSON.parse(localStorage.getItem('deaceDesigns')))
   let user
   useEffect(()=>{
-        fetch('https://deace-hlxl.onrender.com/api/designs',{
+        fetch('/api/designs',{
           method:"GET",
           credentials:'include'
         }).then(res=>{
