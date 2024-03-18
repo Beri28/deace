@@ -45,8 +45,9 @@ function App() {
   // const [designs,setDesigns]=useState(JSON.parse(localStorage.getItem('deaceDesigns')))
   let user
   useEffect(()=>{
-        fetch('https://deace.co/api/designs',{
-          method:"GET"
+        fetch('https://deace-hlxl.onrender.com/api/designs',{
+          method:"GET",
+          credentials:'include'
         }).then(res=>{
           if(res.ok){
             return res.json()
