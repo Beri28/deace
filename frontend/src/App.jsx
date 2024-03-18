@@ -1,21 +1,37 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import Menu from './assets/components/Menu/Menu'
-import Navbar from './assets/components/Navbar/Navbar'
-import Hero from './assets/components/Hero/Hero'
-import Section from './assets/components/Section/Section'
-import Section2 from './assets/components/Section/Section2'
-import Footer from './assets/components/Footer/Footer'
+import { useEffect, useState,lazy } from 'react'
 import { BrowserRouter as Router,Routes,Route, Link, useNavigate } from 'react-router-dom'
-import Details from './assets/components/Details/Details'
-import Admin from './assets/components/Admin/Admin'
-import AdminEdit from './assets/components/Admin/AdminEdit'
-import AdminDelete from './assets/components/Admin/AdminDelete'
-import Register from './assets/components/Register/Register'
-import Login from './assets/components/Register/Login'
-import Credits from './assets/components/Credits/Credits'
-import ContactUs from './assets/components/ContactUs/ContactUs'
-import NotFound from './assets/components/NotFound/NotFound'
+import './App.css'
+import Navbar from './assets/components/Navbar/Navbar'
+const Menu=lazy(()=>import('./assets/components/Menu/Menu'))
+const Hero=lazy(()=>import('./assets/components/Hero/Hero'))
+const Section=lazy(()=>import('./assets/components/Section/Section'))
+const Section2=lazy(()=>import('./assets/components/Section/Section2'))
+const Footer=lazy(()=>import('./assets/components/Footer/Footer'))
+const Details=lazy(()=>import('./assets/components/Details/Details'))
+const Admin=lazy(()=>import('./assets/components/Admin/Admin'))
+const AdminEdit=lazy(()=>import('./assets/components/Admin/AdminEdit'))
+const AdminDelete=lazy(()=>import('./assets/components/Admin/AdminDelete'))
+const Register=lazy(()=>import('./assets/components/Register/Register'))
+const Login=lazy(()=>import('./assets/components/Register/Login'))
+const Credits=lazy(()=>import('./assets/components/Credits/Credits'))
+const ContactUs=lazy(()=>import('./assets/components/ContactUs/ContactUs'))
+const NotFound=lazy(()=>import('./assets/components/NotFound/NotFound'))
+
+// import Menu from './assets/components/Menu/Menu'
+// import Navbar from './assets/components/Navbar/Navbar'
+// import Hero from './assets/components/Hero/Hero'
+// import Section from './assets/components/Section/Section'
+// import Section2 from './assets/components/Section/Section2'
+// import Footer from './assets/components/Footer/Footer'
+// import Details from './assets/components/Details/Details'
+// import Admin from './assets/components/Admin/Admin'
+// import AdminEdit from './assets/components/Admin/AdminEdit'
+// import AdminDelete from './assets/components/Admin/AdminDelete'
+// import Register from './assets/components/Register/Register'
+// import Login from './assets/components/Register/Login'
+// import Credits from './assets/components/Credits/Credits'
+// import ContactUs from './assets/components/ContactUs/ContactUs'
+// import NotFound from './assets/components/NotFound/NotFound'
 
 
 
@@ -43,6 +59,8 @@ function App() {
             setEmpty(true)
           }
         }).catch((err)=>{
+          setLoading(false)
+          setEmpty(true)
           console.log(err)
         })
         let d=new Date()

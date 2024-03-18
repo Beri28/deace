@@ -14,9 +14,22 @@ mongoose.connect(process.env.mongoURI_online).then(()=>{
 })
 
 app.use(cors({
-    origin:['http://127.0.0.1:5173','https://www.deace.co/','http://localhost:5173'],
+    //origin:['http://127.0.0.1:5173','https://www.deace.co/','http://localhost:5173'],
+    origin:true,
     credentials:true,
 }))
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://www.deace.co/");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+    );
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(200);
+    }
+    next();
+  });
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({limit:'50mb',extended:true}))
