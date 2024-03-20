@@ -92,7 +92,7 @@ const deleteDesign=async(req,res)=>{
         let id=req.params.id
         let deletedDesign=await designSchema.findByIdAndDelete({_id:id})
         deletedDesign.pic.forEach((pic)=>{
-            fs.unlink("frontend/public/assets/img/"+pic,(err)=>{
+            fs.unlink("./frontend/public/assets/img/"+pic,(err)=>{
                 if(err)throw(err)
             })
         })

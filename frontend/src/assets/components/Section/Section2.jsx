@@ -18,20 +18,20 @@ const Section2 = ({title,id,top}) => {
             <div className="d-flex my-4 pipe d-md-none" id={id}>
                 <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Bonnettes"/>
                 <Card2 imgUrl="url('assets/img/img-3.jpg')" collName="Fascinators"/>
-                <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Bubu"/>
+                <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Boubou"/>
                 <Card2 imgUrl="url('assets/img/img-3.jpg')" collName="Scarfs"/>
                 <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Jumpsuits"/>
                 <Card2 imgUrl="url('assets/img/img-3.jpg')" collName="Accessories"/>
             </div>
             <div className="d-md-flex d-none row justify-content-center my-4">
                 <div className="col-lg-3 col-md-4 col-5 shadow px-0  mb-3">
-                    <Card2  imgUrl="url('assets/img/img-6.jpg')" collName="Bonnets"  />
+                    <Card2  imgUrl="url('assets/img/img-6.jpg')" collName="Bonnettes"  />
                 </div>
                 <div className="col-lg-3 col-md-4 col-5 shadow px-0  mb-3">
                     <Card2  imgUrl="url('assets/img/img-7.jpg')" collName="Fascinators"/>
                 </div>
                 <div className="col-lg-3 col-md-4 col-5 shadow px-0  mb-3">
-                    <Card2  imgUrl="url('assets/img/img-2.jpg')" collName="Bubu"/>
+                    <Card2  imgUrl="url('assets/img/img-2.jpg')" collName="Boubou"/>
                 </div>
                 <div className="col-lg-3 col-md-4 col-5 shadow px-0  mb-3">
                     <Card2  imgUrl="url('assets/img/img-8.jpg')" collName="Scarfs"/>
