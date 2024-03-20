@@ -1,5 +1,6 @@
 const designSchema=require('../model/design')
 const adminSchema=require('../model/admin')
+const catSchema=require('../model/categories')
 const jwt=require("jsonwebtoken")
 const dotenv=require('dotenv').config()
 const path=require('path')
@@ -28,8 +29,8 @@ const saveDesign=async(req,res)=>{
                 }
             })
         })
-        const {name,price,size,description,pics}=req.body
-        let newDesign=await designSchema.create({name,price,size,description,pic:pics})
+        const {name,price,size,category,description,pics}=req.body
+        let newDesign=await designSchema.create({name,price,size,category,description,pic:pics})
         if(newDesign){
             res.json({res:"Saved successfully!",id:newDesign._id})
             return
@@ -44,13 +45,22 @@ const saveDesign=async(req,res)=>{
 const editDesign=async(req,res)=>{
     try{
         let files=req.files
+        console.log(files)
         req.body.pic=[]
+        let oldPics=await designSchema.findById(req.body._id).select({"pic":1,"_id":0})
+        if(req.body.deletePic=='Yes'){
+            oldPics.pic.forEach((pic)=>{
+                fs.unlink("frontend/public/assets/img/"+pic,(err)=>{
+                    if(err)throw(err)
+                })
+            })
+        }
         files.forEach((file,i)=>{
-            req.body.pic.push(req.body.name.replace(/\s+/g,'') + i + path.extname(file.originalname))
+            req.body.pic.push(req.body.name.replace(/\s+/g,'') + (i+1) + path.extname(file.originalname))
             let oldImagePath= "frontend/public/assets/img/" + file.originalname;
             let newImageName=req.body.pic[i] 
             let newImagePath="frontend/public/assets/img/" + newImageName
-            fs.renameSync(`${oldImagePath}`,`${newImagePath}`,(err)=>{
+            fs.renameSync(oldImagePath,newImagePath,(err)=>{
                 if(err){
                     throw(err)
                 }
@@ -64,18 +74,12 @@ const editDesign=async(req,res)=>{
             }
             }
         }
-        let oldPics=await designSchema.findById(req.body._id).select({"pic":1,"_id":0})
-        if(req.body.deletePic=='Yes'){
-            oldPics.pic.forEach((pic)=>{
-                fs.unlink(`frontend/public/assets/img/${pic}`,(err)=>{
-                    if(err)throw(err)
-                })
-            })
-        }else if(req.body.deletePic=='No'){
+        if(req.body.deletePic=='No'){
             let newPics=[...data.pic,...oldPics.pic]
             data.pic=newPics
         }
-        let updates=await designSchema.findByIdAndUpdate(req.body._id,{$set:data},{new:true})
+        console.log(data)
+        let updates=await designSchema.findByIdAndUpdate({_id:req.body._id},{$set:data},{new:true})
         res.json({Edited:true})
     }
     catch(err){
@@ -88,7 +92,7 @@ const deleteDesign=async(req,res)=>{
         let id=req.params.id
         let deletedDesign=await designSchema.findByIdAndDelete({_id:id})
         deletedDesign.pic.forEach((pic)=>{
-            fs.unlink(`frontend/public/assets/img/${pic}`,(err)=>{
+            fs.unlink("frontend/public/assets/img/"+pic,(err)=>{
                 if(err)throw(err)
             })
         })
@@ -184,6 +188,21 @@ const handleLikes=async(req,res)=>{
         res.json({Error:err.message})
     }
 }
+const getCat=async (req,res)=>{
+    try{
+        let name=req.params.name 
+        let cat=await catSchema.findOne({name})
+        if(cat){
+            res.json({Category:cat})
+            return
+        }
+        res.json({Category:"No category"})
+    }
+    catch(error){
+        console.log(err.message)
+        res.json({Error:err.message})
+    }
+}
 
 exports.saveDesign=saveDesign
 exports.register=register
@@ -194,3 +213,4 @@ exports.getDesigns=getDesigns
 exports.handleLikes=handleLikes
 exports.editDesign=editDesign
 exports.deleteDesign=deleteDesign
+exports.getCat=getCat

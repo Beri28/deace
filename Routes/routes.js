@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const {saveDesign,editDesign,deleteDesign,register,login,admin,logout,getDesigns,handleLikes}=require('../controller/controller')
+const {saveDesign,editDesign,deleteDesign,register,login,admin,logout,getDesigns,handleLikes,getCat}=require('../controller/controller')
 const multer=require('multer')
 const jwt=require('jsonwebtoken')
 const adminSchema=require('../model/admin')
@@ -43,6 +43,7 @@ router.post('/register',register)
 router.route('/login').post(login)
 router.get('/admin/:token',authMiddleware,admin)
 router.route('/logout/:token',authMiddleware,logout)
+router.get('/categories/:name',getCat)
 
 
 module.exports=router

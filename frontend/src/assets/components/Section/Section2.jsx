@@ -1,14 +1,22 @@
 import Card2 from "../Card2/Card2";
 import './Section.css'
 const Section2 = ({title,id,top}) => {
+    const handleClick=(e)=>{
+        // document.querySelector('.pipe').scrollLeft +=150
+        document.querySelector('.pipe').scrollBy({
+            top:0,
+            left:+100,
+            behavior:'smooth'
+        })
+    }
     return ( 
         <div className="container my-4 pe-0 ps-1 position-relative">
-            <i className="fas fa-arrow-right position-absolute d-md-none fa-lg pe-2" style={{color:"white",fontSize:'x-large',zIndex:"20",right:"0",top:top}}></i>
+            <i className="fas fa-arrow-right position-absolute d-md-none fa-lg pe-2" onClick={(e)=>handleClick(e)} style={{color:"white",fontSize:'x-large',zIndex:"20",right:"0",top:top}}></i>
             <div className=" d-flex justify-content-center">
                 <h2 className="popular pb-2  fw-bold">{title}</h2>
             </div>
             <div className="d-flex my-4 pipe d-md-none" id={id}>
-                <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Bonnets"/>
+                <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Bonnettes"/>
                 <Card2 imgUrl="url('assets/img/img-3.jpg')" collName="Fascinators"/>
                 <Card2 imgUrl="url('assets/img/img-5.jpg')" collName="Bubu"/>
                 <Card2 imgUrl="url('assets/img/img-3.jpg')" collName="Scarfs"/>

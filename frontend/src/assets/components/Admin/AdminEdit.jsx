@@ -29,7 +29,7 @@ const AdminEdit = ({isAdmin,username,designs,loading,empty}) => {
                     <div><h2 className="greetings px-2"><i className="fas fa-user user-icon"></i> {adminName}</h2></div>
                     {empty && <h4 className='d-flex justify-content-center'>No designs to show</h4> }
                     <div className="d-md-flex row justify-content-evenly my-4">
-                    {designs.map((design)=>(
+                    {designs.map((design,i)=>(
                         <div  className="col-lg-3 col-md-4 col-5 shadow px-0  mb-3 mx-md-2" key={design._id}>
                             <div className="card card-cover overflow-hidden text-white rounded-5 shadow-lg w-100" style={{backgroundImage:"url('../assets/img/"+design.pic[0]+"')" ,backgroundRepeat:"round"}}>
                                 <div className="img w-100 h-100">
@@ -44,7 +44,7 @@ const AdminEdit = ({isAdmin,username,designs,loading,empty}) => {
                                                 <h3>{design.name}</h3>
                                             </div>
                                             <div className="col">
-                                                <EditModal modalHeading="Edit Design" designId={design._id} designName={design.name}/>
+                                                <EditModal modalHeading="Edit Design" design={design} designId={design._id} designName={design.name}/>
                                             </div>
                                         </div>
                                     </div>

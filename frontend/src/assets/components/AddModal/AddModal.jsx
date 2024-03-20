@@ -4,22 +4,26 @@ const AddModal = ({modalHeading}) => {
     const [name,setName]=useState("")
     const [price,setPrice]=useState('')
     const [size,setSize]=useState('Multiple')
+    const [category,setCategory]=useState('casual')
     const [description,setDescription]=useState('')
     const [photo,setPhoto]=useState('')
     const [buttonText,setButtonText]=useState('Add')
     const [spinner,setSpinner]=useState(false)
     const [msg,setMsg]=useState(false)
+    const [dmsg,setDMsg]=useState(false)
     let user
     const handleSubmit=async(e)=>{
         e.preventDefault()
         setButtonText('Saving')
         setSpinner(true)
+        setDMsg(false)
         let img=document.querySelector('#pic').files
         let imgs=[]
         let formData=new FormData()
         formData.append("name",name)
         formData.append("price",price)
         formData.append("size",size)
+        formData.append("category",category)
         formData.append("description",description)
         for(let file of img){
             imgs.push(file)
@@ -38,6 +42,12 @@ const AddModal = ({modalHeading}) => {
             .then((data)=>{
                 if(data.Redirect){
                     location.assign(data.Redirect)
+                    return
+                }
+                if(data.Error && data.Error.includes('duplicate key')){
+                    setDMsg(true)
+                    setSpinner(false)
+                    setButtonText(buttonText)
                     return
                 }
                 setButtonText("Saved")
@@ -67,6 +77,9 @@ const AddModal = ({modalHeading}) => {
                 </div>
                 {msg &&<div className='alert alert-success' style={{width:'93.5%',marginLeft:'1em'}}>
                     <span>Design Saved</span>
+                </div>}
+                {dmsg &&<div className='alert alert-danger' style={{width:'93.5%',marginLeft:'1em'}}>
+                    <span>Design with that name already exists </span>
                 </div>}
                 <div className="modal-body">
                     <form action="" onSubmit={(e)=>{handleSubmit(e)}}  encType='multipart/form-data'>
@@ -98,6 +111,17 @@ const AddModal = ({modalHeading}) => {
                         <div className="form-group my-2">
                             <label htmlFor="pic">Picture</label>
                             <input type="file" name="pic" id="pic" multiple="multiple" value={photo} onChange={(e)=>{setPhoto(e.target.value)}}/>
+                        </div>
+                        <div className="form-group my-2">
+                            <label htmlFor="category">Category </label>
+                            <select name="category" className='ms-2' id="category" value={category} onChange={(e)=>{setCategory(e.target.value)}} required>
+                                <option value="casual">Casual</option>
+                                <option value="bonnettes">Bonnettes</option>
+                                <option value="fascinators">Fascinators</option>
+                                <option value="boubou">Boubou</option>
+                                <option value="scarfs">scarfs</option>
+                                <option value="jumpsuits">Jumpsuits</option>
+                            </select>
                         </div>
                         <button type="submit" className="btn btn-secondary w-100">{buttonText} {spinner && <span className="spinner-border text-light"></span>}</button>
                     </form>

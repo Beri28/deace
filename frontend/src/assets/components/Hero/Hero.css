@@ -37,6 +37,17 @@
         left:30em!important;
     }
 }
+@media  (380px < width <=480px ) {
+    .custom-sticker-2{
+        top: 33.5em!important;
+    }
+}
+    
+@media  (width <=380px ) {
+    .custom-sticker-2{
+        top: 25em!important;
+    }
+}
 @media  (min-height:1200px) {
     .hero{
         height: unset;

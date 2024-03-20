@@ -31,7 +31,7 @@ const Card = ({imageUrl,design}) => {
                      <div className="d-flex flex-column h-100 pb-lg-2 p-2 text-white text-shadow-1 justify-content-start align-items-center mt-lg-2">
                         <div className="info d-flex col-md-4 row w-100">
                             <p className="h5 col-12">{design.name}</p>
-                            <h6 className="col-6">{design.price}</h6>
+                            <h6 className="col-12">{design.price}</h6>
                             <h6 className="col-6">
                                 <select name="size" id="size">
                                     {design.size.map((size)=>(
@@ -40,8 +40,8 @@ const Card = ({imageUrl,design}) => {
                                 </select>
                             </h6>
                             <h6 className="col-6"><i className="fas fa-heart pe-2 like" onClick={()=>handleLikes()}></i>{likes}</h6>
-                            <div className="col-6">
-                                <InquireModal modalHeading="Send Enquiry" />
+                            <div className="col-12">
+                                <InquireModal modalHeading="Send Enquiry" size="w-100" />
                             </div>
                         </div>
                     </div>
