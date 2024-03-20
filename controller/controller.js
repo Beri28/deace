@@ -48,13 +48,13 @@ const editDesign=async(req,res)=>{
         console.log(files)
         req.body.pic=[]
         let oldPics=await designSchema.findById(req.body._id).select({"pic":1,"_id":0})
-        if(req.body.deletePic=='Yes'){
+        /*if(req.body.deletePic=='Yes'){
             oldPics.pic.forEach((pic)=>{
                 fs.unlink("frontend/public/assets/img/"+pic,(err)=>{
                     if(err)throw(err)
                 })
             })
-        }
+        }*/
         files.forEach((file,i)=>{
             req.body.pic.push(req.body.name.replace(/\s+/g,'') + (i+1) + path.extname(file.originalname))
             let oldImagePath= "frontend/public/assets/img/" + file.originalname;
@@ -91,11 +91,11 @@ const deleteDesign=async(req,res)=>{
     try{
         let id=req.params.id
         let deletedDesign=await designSchema.findByIdAndDelete({_id:id})
-        deletedDesign.pic.forEach((pic)=>{
+        /*deletedDesign.pic.forEach((pic)=>{
             fs.unlink("./frontend/public/assets/img/"+pic,(err)=>{
                 if(err)throw(err)
             })
-        })
+        })*/
         if(deletedDesign){
             res.json({Deleted:true})
             return
