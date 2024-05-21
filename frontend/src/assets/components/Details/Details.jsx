@@ -48,7 +48,7 @@ const Details = ({designs}) => {
                             {focus.pic.map((pic,i)=>(
                                 <div className={"carousel-item " + ((i==0) && "active")} key={i}>
                                     <span className='indicator'>{i+1}/{focus.pic.length}</span>
-                                    <img src={"../assets/img/"+pic} alt="Los Angeles" className="d-block w-100"/>
+                                    <img src={"../assets/img/"+pic} alt={focus.name} className="d-block w-100"/>
                                 </div>
                             ))}
                             {/* <div className="carousel-item active">
